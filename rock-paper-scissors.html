@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>rock paper scissors</title>
+</head>
+<body>
+
+  <script>
+   
+function computerPlay(input) {
+  let randomNo = Math.floor(Math.random() * 10);
+  while (randomNo < 1) {
+    randomNo = Math.floor(Math.random() * 10);
+  }
+  if (randomNo < 4) {
+    input = "rock";
+  } else if 
+    (randomNo < 7) {
+      input = "paper";
+    } else {
+      input = "scissors";
+    }
+    return input;
+  }
+
+function playRound(playerSelection, computerSelection) {
+  let userInput;
+  let computerInput;
+  playerSelection = prompt("Rock, paper or scissors?",userInput);
+  computerSelection = computerPlay();
+  playerSelection = playerSelection.toLowerCase();
+  
+  console.log("Computer: " + computerSelection + "!  ");
+  console.log("Puny Human: " + playerSelection + "!  ");
+
+if (playerSelection == "rock") {
+  switch (computerSelection) {
+    case "rock":
+    console.log("IT'S A DRAW!!!");
+    break;
+    case "paper":
+    console.log("You lose! " + computerSelection + " beats " + playerSelection);
+    break;
+    case "scissors":
+    console.log("You win! " + playerSelection + " beats " + computerSelection);
+  }
+} else if (playerSelection == "paper") {
+  switch (computerSelection) {
+    case "paper":
+    console.log("IT'S A DRAW!!!");
+    break;
+    case "scissors":
+    console.log("You lose! " + computerSelection + " beats " + playerSelection);
+    break;
+    case "rock":
+    console.log("You win! " + playerSelection + " beats " + computerSelection);
+  }
+} else if (playerSelection == "scissors") {
+  switch (computerSelection) {
+    case "scissors":
+    console.log("IT'S A DRAW!!!");
+    break;
+    case "rock":
+    console.log("You lose! " + computerSelection + " beats " + playerSelection);
+    break;
+    case "paper":
+    console.log("You win! " + playerSelection + " beats " + computerSelection);
+  }
+} else {
+  console.log("You cheated or erred!");
+
+}
+}
+
+let round = 0;
+while (round < 5) {
+playRound();
+round++;
+}
+
+  </script>
+</body>
+</html>
