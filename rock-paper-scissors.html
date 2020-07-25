@@ -6,6 +6,9 @@
 </head>
 <body>
 
+  <h1>Good game, good game!</h1>
+  
+
   <script>
    
 function computerPlay(input) {
@@ -24,9 +27,12 @@ function computerPlay(input) {
     return input;
   }
 
+let playerScore = 0;
+let computerScore = 0;
+
 function playRound(playerSelection, computerSelection) {
   let userInput;
-  let computerInput;
+  
   playerSelection = prompt("Rock, paper or scissors?",userInput);
   computerSelection = computerPlay();
   playerSelection = playerSelection.toLowerCase();
@@ -37,39 +43,54 @@ function playRound(playerSelection, computerSelection) {
 if (playerSelection == "rock") {
   switch (computerSelection) {
     case "rock":
-    console.log("IT'S A DRAW!!!");
+    console.log("IT'S A DRAW! Try again!");
+    round--;
     break;
     case "paper":
     console.log("You lose! " + computerSelection + " beats " + playerSelection);
+    ++computerScore;
+    console.log("Computer " + computerScore + ", Puny Human " + playerScore);
     break;
     case "scissors":
     console.log("You win! " + playerSelection + " beats " + computerSelection);
+    ++playerScore;
+    console.log("Computer " + computerScore + ", Puny Human " + playerScore);
   }
 } else if (playerSelection == "paper") {
   switch (computerSelection) {
     case "paper":
-    console.log("IT'S A DRAW!!!");
+    console.log("IT'S A DRAW! Try again!");
+    round--;
     break;
     case "scissors":
     console.log("You lose! " + computerSelection + " beats " + playerSelection);
+    ++computerScore;
+    console.log("Computer " + computerScore + ", Puny Human " + playerScore);
     break;
     case "rock":
     console.log("You win! " + playerSelection + " beats " + computerSelection);
+    ++playerScore;
+    console.log("Computer " + computerScore + ", Puny Human " + playerScore);
   }
 } else if (playerSelection == "scissors") {
   switch (computerSelection) {
     case "scissors":
-    console.log("IT'S A DRAW!!!");
+    console.log("IT'S A DRAW! Try again!");
+    round--;
     break;
     case "rock":
     console.log("You lose! " + computerSelection + " beats " + playerSelection);
+    ++computerScore;
+    console.log("Computer " + computerScore + ", Puny Human " + playerScore);
     break;
     case "paper":
     console.log("You win! " + playerSelection + " beats " + computerSelection);
+    ++playerScore;
+    console.log("Computer " + computerScore + ", Puny Human " + playerScore);
   }
 } else {
-  console.log("You cheated or erred!");
-
+  console.log("PUNY HUMAN TYPED BAD");
+  round--;
 }
 }
 
@@ -79,6 +100,11 @@ playRound();
 round++;
 }
 
+if (playerScore > computerScore) {
+  console.log("PUNY HUMAN WON! Grrr");
+} else {
+  console.log("COMPUTER WON! YAY!");
+}
   </script>
 </body>
 </html>
