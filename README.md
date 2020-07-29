@@ -1,1 +1,1 @@
- tests
+ game between computer and human
